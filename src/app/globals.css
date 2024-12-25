@@ -70,3 +70,8 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+* {
+  font-family: "Inter", serif;
+  font-optical-sizing: auto;
+}
