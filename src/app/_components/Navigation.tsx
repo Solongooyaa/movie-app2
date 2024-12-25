@@ -8,6 +8,7 @@ export const Navigation = () => {
         </div>
 
         <div className="flex items-center gap-[12px]">
+            <button />
           <img src="/Modes.png" alt="Mode Button" />
           <img src="/IconButton.png" alt="Icon Button" />
         </div>
