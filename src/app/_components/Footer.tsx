@@ -1,7 +1,7 @@
 export const Footer = () => {
   return (
-    <div className="w-[100%] h-[308px] bg-[#4338CA] text-[#FAFAFA] p-[40px] flex flex-col gap-[24px]">
-      <div className="  w-[100%] h-[52px]">
+    <div className="w-full h-[308px] bg-[#4338CA] text-[#FAFAFA] p-[40px] flex flex-col gap-[24px]">
+      <div className=" w-full h-[52px]">
         <div className="flex items-center gap-2">
           <img src="/film.png" alt="film png" className="h-6" />
           <div className="text-base font-semibold">Movie Z</div>
