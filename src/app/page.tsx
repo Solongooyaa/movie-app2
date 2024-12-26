@@ -10,10 +10,9 @@ export default async function Home() {
   return (
     <div className="w-full h-screen">
       <Navigation />
-
+      <Section title="Popular" endpoint="popular" />
       <Section title="Upcoming" endpoint="upcoming" />
       <Section title="Top Rated" endpoint="top_rated" />
-      <Section title="Popular" endpoint="popular" />
       <Footer />
     </div>
   );

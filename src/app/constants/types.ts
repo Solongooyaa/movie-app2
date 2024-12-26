@@ -14,7 +14,7 @@ export type Movie = {
   vote_average: number;
   vote_count: number;
 };
-export type MovieVieaw = {
+export type MovieDetail = {
   adult: boolean;
   backdrop_path: string;
   genre_ids: number[];
