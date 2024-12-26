@@ -1,4 +1,3 @@
-export default function Page({ params }) {
-  console.log(params.genre);
+export default function Page({}) {
   return <div></div>;
 }
