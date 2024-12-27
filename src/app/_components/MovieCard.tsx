@@ -6,29 +6,26 @@ type Props = {
   prop: Movie;
 };
 
-export const MovieCard = (props: Props) => {
-  console.log(props);
+export const MovieCard = ({ prop }: Props) => {
   return (
-    <div className="bg-[#F4F4F5] rounded-b-xl rounded-t-xl">
-      <Link href={`/movie/${props.prop.id}`}>
-      <img
-        className="rounded-t-xl "
-        src={`https://image.tmdb.org/t/p/w500${props.prop.poster_path}`}
-        alt=""
-      />
-      <div className="p-2">
-        <div className="flex gap-2 items-center">
-          <FaStar className="fill-yellow-400" />
-          <p className="font-bold font-size-[12px]">{props.prop.vote_average.toFixed(1)}  /</p>
-          <p>10</p>
-
-        </div>
-        <p className="text-2xl font-size-[14px]">
-          {props.prop.title}
-        </p>
+    <div className="bg-[#F4F4F5] rounded-xl overflow-hidden shadow-md hover:shadow-lg transition-shadow duration-200">
+      <Link href={`/movie/${prop.id}`}>
+        <img
+          className="w-full h-64 object-cover"
+          src={`https://image.tmdb.org/t/p/w500${prop.poster_path}`}
+          alt={prop.title}
+        />
+        <div className="p-2">
+          <div className="flex items-center gap-1 mb-1">
+            <FaStar className="text-yellow-400" />
+            <p className="font-bold text-sm">
+              {prop.vote_average.toFixed(1)} /
+            </p>
+            <p className="text-sm">10</p>
+          </div>
+          <p className="text-lg font-semibold truncate">{prop.title}</p>
         </div>
       </Link>
-     
     </div>
   );
 };

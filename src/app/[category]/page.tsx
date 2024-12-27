@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import { options } from "../_components/Section";
 import { Movie } from "../constants/types";
@@ -10,37 +10,38 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 export default function Page() {
-  const params = useParams()
+  const params = useParams();
   const [movies, setMovies] = useState<Movie[]>([]);
 
   useEffect(() => {
-    const fetchMovies = async ()=> {
-      const response = await fetch( `https://api.themoviedb.org/3/movie/${params.category}?language=en-US&page=1`, options);
+    const fetchMovies = async () => {
+      const response = await fetch(
+        `https://api.themoviedb.org/3/movie/${params.category}?language=en-US&page=1`,
+        options
+      );
       const resJson = await response.json();
-      const data: Movie[] = resJson.results;
-      setMovies(data)
-    }
+      setMovies(resJson.results || []);
+    };
+
     fetchMovies();
-   
-  },[])
-  
+  }, [params.category]);
+
   return (
-      <div className="w-full">
-        <Navigation/>
-        <div className="flex justify-between gap-2 p-4">
-          <p className="font-bold ">popular</p>
-         <div className="flex items-center gap-2">
-            <p className="">See more</p>
-                  <IoArrowForwardSharp/>
-          </div>
+    <div className="w-full min-h-screen flex flex-col">
+      <Navigation />
+      <div className="flex justify-between items-center gap-2 p-4">
+        <h1 className="text-2xl font-bold capitalize">{params.category}</h1>
+        <div className="flex items-center gap-2 cursor-pointer">
+          <p>See more</p>
+          <IoArrowForwardSharp />
         </div>
-        
-        <div className="grid grid-cols-2 gap-4 p-2 md:grid-cols-3 lg:grid-cols-5 rounded-t-lg">
+      </div>
+      <div className="grid grid-cols-2 gap-4 p-4 md:grid-cols-3 lg:grid-cols-5">
         {movies?.map((movie) => (
-                <MovieCard prop={movie} />
-              ))}
-        </div>
-             <Footer/>
-            </div>
+          <MovieCard key={movie.id} prop={movie} />
+        ))}
+      </div>
+      <Footer />
+    </div>
   );
 }
