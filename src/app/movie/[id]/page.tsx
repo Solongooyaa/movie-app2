@@ -1,4 +1,5 @@
 // import { MovieCard } from "@/app/_components/MovieCard";
+import { Director } from "@/app/_components/Director";
 import { Footer } from "@/app/_components/Footer";
 import { Navigation } from "@/app/_components/Navigation";
 import { options } from "@/app/_components/Section";
@@ -49,6 +50,7 @@ export default async function Page({ params }: Props) {
           </p>
         </div>
       </div>
+      <Director/>
       <Footer />
     </div>
   );

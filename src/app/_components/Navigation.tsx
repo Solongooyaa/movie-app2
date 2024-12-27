@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 
 export const Navigation = () => {
   return (
@@ -12,7 +11,6 @@ export const Navigation = () => {
         <div className="flex items-center gap-[12px]">
           <button />
           <img src="/Modes.png" alt="Mode Button" />
-          <Button />
           <img src="/IconButton.png" alt="Icon Button" />
         </div>
       </div>

@@ -6,21 +6,25 @@ import { MovieCard } from "../_components/MovieCard";
 import { Navigation } from "@/app/_components/Navigation";
 import { Footer } from "../_components/Footer";
 import { IoArrowForwardSharp } from "react-icons/io5";
-import { useParams } from "next/navigation";
+import { useParams, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
+import { Pagination } from "../_components/Pagination";
 
 export default function Page() {
   const params = useParams();
-  const [movies, setMovies] = useState<Movie[]>([]);
+  const searchParams = useSearchParams();
+  const page = searchParams.get('page')
+  const [movies, setMovies] = useState<Movie[]>();
 
   useEffect(() => {
     const fetchMovies = async () => {
       const response = await fetch(
-        `https://api.themoviedb.org/3/movie/${params.category}?language=en-US&page=1`,
+        `https://api.themoviedb.org/3/movie/${params.category}?language=en-US&page=${page}`,
         options
       );
-      const resJson = await response.json();
-      setMovies(resJson.results || []);
+      const data = await response.json();
+      setMovies(data.results);
+      console.log(data)
     };
 
     fetchMovies();
@@ -40,7 +44,9 @@ export default function Page() {
         {movies?.map((movie) => (
           <MovieCard key={movie.id} prop={movie} />
         ))}
+        
       </div>
+      <Pagination/>
       <Footer />
     </div>
   );

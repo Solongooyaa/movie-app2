@@ -29,7 +29,7 @@ export const Section = async ({ title, endpoint }: Props) => {
     <div className="p-3">
       <div className="flex justify-between items-center mb-4">
         <h1 className="text-xl font-bold">{title}</h1>
-        <Link href={`/${endpoint}`} className="flex items-center gap-2">
+        <Link href={`/${endpoint}?language=en-US&page=1`} className="flex items-center gap-2">
           <p>See more</p>
           <IoArrowForwardSharp />
         </Link>
