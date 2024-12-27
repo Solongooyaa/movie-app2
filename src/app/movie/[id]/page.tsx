@@ -24,7 +24,7 @@ export default async function Page({ params }: Props) {
       <Navigation />
       <div className="p-4 space-y-6">
         <div className="flex justify-between items-center">
-          <div>
+          <div className="">
             <h1 className="text-3xl font-bold">{data.title}</h1>
             <p className="text-gray-500">{data.release_date}</p>
           </div>
