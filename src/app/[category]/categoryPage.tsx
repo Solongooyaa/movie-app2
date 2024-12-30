@@ -10,7 +10,7 @@ import { useParams, useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { Pagination } from "../_components/Pagination";
 
-export default function Page() {
+export default function categoryPage() {
   const params = useParams();
   const searchParams = useSearchParams();
   const page = searchParams.get('page')
