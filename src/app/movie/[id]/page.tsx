@@ -2,7 +2,7 @@
 import { Director } from "@/app/_components/Director";
 import { Footer } from "@/app/_components/Footer";
 import { Navigation } from "@/app/_components/Navigation";
-import { options } from "@/app/_components/Section";
+import { options, Section } from "@/app/_components/Section";
 import { MovieDetail } from "@/app/constants/types";
 import { FaStar } from "react-icons/fa";
 
@@ -12,13 +12,13 @@ type Props = {
   };
 };
 
-export default async function Page({ params }: Props) {
+export default async function DetailPage({ params }: Props) {
   const response = await fetch(
     `https://api.themoviedb.org/3/movie/${params.id}?language=en-US`,
     options
   );
   const data: MovieDetail = await response.json();
-  console.log(data);
+  // console.log(data);
 
   return (
     <div className="w-full min-h-screen flex flex-col">
@@ -49,6 +49,9 @@ export default async function Page({ params }: Props) {
             {data.overview}
           </p>
         </div>
+        <Section title="More like this" 
+            moreLink={`movie/${params?.id}/recommendations`}
+            endpoint={`movie/${params?.id}/recommendations`}/>
       </div>
       <Director/>
       <Footer />

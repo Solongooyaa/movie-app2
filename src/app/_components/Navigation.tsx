@@ -1,3 +1,4 @@
+import { MoonIcon, SearchIcon } from "lucide-react";
 
 export const Navigation = () => {
   return (
@@ -10,8 +11,13 @@ export const Navigation = () => {
 
         <div className="flex items-center gap-[12px]">
           <button />
-          <img src="/Modes.png" alt="Mode Button" />
-          <img src="/IconButton.png" alt="Icon Button" />
+          <div className="border rounded">
+          <SearchIcon />
+          </div>
+          <div className="border rounded">
+          <MoonIcon/>
+          </div>
+         
         </div>
       </div>
     </>
