@@ -5,7 +5,6 @@ export const Director = () => {
       <div className="h-[377px] flex justify-between">
         More like this
         <p>See more</p>
-        <p>s</p>
       </div>
     </div>
   );
