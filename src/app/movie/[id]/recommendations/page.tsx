@@ -1,10 +1,13 @@
 import { Section } from "@/app/_components/Section";
 
-
-export default function Page ({params}: {params: {id: string}}){
-    return (
-            <Section title="More like this" 
-            // moreLink={`movie/${params.id}/recommendations`}
-            endpoint={`movie/${params.id}/recommendations`}/>
-    );
+export default function RecomPage({ params }: { params: { id: string } }) {
+  console.log(params);
+  return (
+    <div>
+      <Section
+        title="More like"
+        endpoint={`movie/${params.id}/recommendations`}
+      />
+    </div>
+  );
 }

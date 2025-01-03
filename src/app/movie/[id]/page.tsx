@@ -14,10 +14,10 @@ type Props = {
 
 export default async function DetailPage({ params }: Props) {
   const response = await fetch(
-    `https://api.themoviedb.org/3/movie/${params.id}?language=en-US`,
+    `https://api.themoviedb.org/3/movie/${params?.id}`,
     options
   );
-  const data: MovieDetail = await response.json();
+  const data: MovieDetail = await response?.json();
   // console.log(data);
 
   return (
@@ -49,11 +49,13 @@ export default async function DetailPage({ params }: Props) {
             {data.overview}
           </p>
         </div>
-        <Section title="More like this" 
-            moreLink={`movie/${params?.id}/recommendations`}
-            endpoint={`movie/${params?.id}/recommendations`}/>
+        <Director />
+        <Section
+          title="More like this"
+          moreLink={`${params.id}/recommendations`}
+          endpoint={`movie/${params.id}/recommendations`}
+        />
       </div>
-      <Director/>
       <Footer />
     </div>
   );
