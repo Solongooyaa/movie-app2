@@ -34,3 +34,7 @@ export type PageInfo = {
   totalPages: number;
   currentPage: number;
 }
+export type Genre ={
+  name: string;
+  id: number;
+}

@@ -7,9 +7,12 @@ import {
 import { useEffect, useState } from "react";
 import { options } from "./Section";
 import { Badge } from "@/components/ui/badge";
+import { Genre } from "../constants/types";
+import { ArrowBigDown, } from "lucide-react";
+import Link from "next/link";
 
 export const FilterGenre = () => {
-  const [genre, getGenre] = useState([]);
+  const [genre, setGenre] = useState<Genre[]>([]);
   useEffect(() => {
     const fetchGenre = async () => {
       const response = await fetch(
@@ -17,20 +20,22 @@ export const FilterGenre = () => {
         options
       );
       const data = await response.json();
-      getGenre(data.genres);
+      setGenre(data.genres);
     };
     fetchGenre();
   }, []);
   const genres = genre;
-  return;
+  return(
   <Popover>
     <PopoverTrigger>
-      <div className="w-[150px] border rounded p-4">Genre</div>
+      <div className="w-[60px] border rounded p-4 flex justify-center items-center"><ArrowBigDown/></div>
     </PopoverTrigger>
     <PopoverContent>
-      {genres?.map((genre) => (
-        <Badge> {genre?.name} </Badge>
+      {genres?.map((genre: Genre) => (
+        <Link className="p-1" key={genre.id} href={`/discover?with_genres=${genre.id}&page=1`}>
+        <Badge key={`genre-${genre.id}`}> {genre?.name} </Badge>
+        </Link>
       ))}
     </PopoverContent>
-  </Popover>;
-};
+  </Popover>
+)}

@@ -1,6 +1,5 @@
 import { Navigation } from "./_components/Navigation";
 import { Footer } from "./_components/Footer";
-import { PhoneTop } from "./_components/PhoneTop";
 import { title } from "process";
 import { Section } from "./_components/Section";
 

@@ -11,11 +11,11 @@ export const Navigation = () => {
 
         <div className="flex items-center gap-[12px]">
           <button />
-          <div className="border rounded">
-          <SearchIcon />
+          <div className="border rounded-md w-[36px] h-[36px] flex items-center justify-center">
+          <SearchIcon className="w-[16px] h-[16px] "/>
           </div>
-          <div className="border rounded">
-          <MoonIcon/>
+          <div className="border rounded-md w-[36px] h-[36px] flex items-center justify-center">
+          <MoonIcon className="w-[16px] h-[16px] "/>
           </div>
          
         </div>

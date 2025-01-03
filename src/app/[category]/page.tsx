@@ -26,7 +26,7 @@ export default function CategoryPage() {
       const response = await fetch(
         `https://api.themoviedb.org/3/movie/${params.category}?language=en-US&page=${page}`,
         options
-      );
+      )
       const data = await response.json();
       setMovies(data.results);
       setPageInfo({ currentPage: Number(page), totalPages: data.total_page})

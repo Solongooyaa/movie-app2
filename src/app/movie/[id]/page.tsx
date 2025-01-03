@@ -18,7 +18,11 @@ export default async function DetailPage({ params }: Props) {
     options
   );
   const data: MovieDetail = await response?.json();
-  // console.log(data);
+  console.log(data);
+
+  if (!data){
+    return <div>Loading...</div>
+  }
 
   return (
     <div className="w-full min-h-screen flex flex-col">
@@ -32,7 +36,7 @@ export default async function DetailPage({ params }: Props) {
           <div className="flex items-center gap-1">
             <FaStar className="text-yellow-400" />
             <p className="text-xl font-bold">
-              {data.vote_average.toFixed(1)} / 10
+              {data?.vote_average?.toFixed(1)} / 10
             </p>
           </div>
         </div>
