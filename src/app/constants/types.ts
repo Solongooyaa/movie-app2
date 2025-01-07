@@ -33,8 +33,8 @@ export type MovieDetail = {
 export type PageInfo = {
   totalPages: number;
   currentPage: number;
-}
-export type Genre ={
+};
+export type Genre = {
   name: string;
   id: number;
-}
+};
