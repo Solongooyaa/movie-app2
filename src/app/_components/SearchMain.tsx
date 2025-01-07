@@ -13,6 +13,7 @@ export const SearchMain = () => {
     <div className="w-[100px] h-[50px] border rounded">
       <SearchInput handleChange={handleChange} value={searchValue} />
       {searchValue && <SearchResults searchValue={searchValue} />}
+      <div></div>
     </div>
   );
 };
